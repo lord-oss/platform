@@ -19,8 +19,9 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   }
 });
 const sequelize = require('./database');
-sequelize.sync(); // добавь перед запуском сервера
-// Получение данных KPI
+sequelize.sync().then(() => {
+  console.log('База данных подключена');
+});
 async function fetchKPIData() {
   const response = await fetch('/api/kpi');
   return await response.json();
