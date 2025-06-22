@@ -10,14 +10,14 @@ const io = socketIO(server);
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Роуты
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/index.html'));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // Подключение к БД
