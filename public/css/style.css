@@ -1,0 +1,41 @@
+/* Основные стили (адаптация вашего кода) */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.dark body {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+/* Хедер */
+.header {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .header {
+  background: #1f2937;
+}
+
+/* Карточки KPI */
+.kpi-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
