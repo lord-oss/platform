@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-full bg-gray-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SZCORP - Корпоративный портал</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="h-full font-sans">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r p-4 shadow-sm">
+      <h2 class="text-xl font-bold mb-6">Меню</h2>
+      <ul class="space-y-4">
+        <li><a href="#" class="text-gray-800 hover:text-blue-600">Главная</a></li>
+        <li><a href="#" class="text-gray-800 hover:text-blue-600">Профиль</a></li>
+        <li><a href="#" class="text-gray-800 hover:text-blue-600">KPI</a></li>
+        <li><a href="#" class="text-gray-800 hover:text-blue-600">Выход</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-auto p-8">
+      <h1 class="text-3xl font-bold mb-6">Добро пожаловать на портал SZCORP</h1>
+
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-4 bg-white rounded-xl shadow hover:shadow-lg transition-all">
+          <h2 class="text-xl font-semibold">Задачи</h2>
+          <p class="text-gray-600">5 новых задач</p>
+        </div>
+        <div class="p-4 bg-white rounded-xl shadow hover:shadow-lg transition-all">
+          <h2 class="text-xl font-semibold">Проекты</h2>
+          <p class="text-gray-600">2 активных проекта</p>
+        </div>
+        <div class="p-4 bg-white rounded-xl shadow hover:shadow-lg transition-all">
+          <h2 class="text-xl font-semibold">KPI</h2>
+          <p class="text-gray-600">85% выполнено</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const socket = io();
+    const currentUserId = "user123"; // Пример, замените на реальное ID
+
+    socket.emit('join', currentUserId);
+
+    socket.on('notification', (data) => {
+      alert(`Уведомление: ${data.message}`);
+    });
+  </script>
+</body>
+</html>
